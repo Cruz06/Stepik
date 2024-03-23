@@ -14,3 +14,5 @@ button = browser.find_element(By.TAG_NAME, "button")
 # другой способ скрола
 browser.execute_script("window.scrollBy(0, 100);")
 button.click()
+
+time.sleep(3)
