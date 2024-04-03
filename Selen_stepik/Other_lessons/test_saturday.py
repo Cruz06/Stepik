@@ -11,9 +11,9 @@ def test_form():
     browser.get(link)
     browser.implicitly_wait(7)
 
-    # 1. Select Value (first)
-    browser.find_element(By.CSS_SELECTOR, '[id="withOptGroup"]').click()
-    browser.find_element(By.XPATH, '//*[@id="withOptGroup"]/div/div[1]/div[1]').click()
+    # 1. Select Value (first)   !!! no
+    browser.find_element(By.CSS_SELECTOR, '#withOptGroup div div').click()
+    browser.find_element(By.XPATH, '//*[contains(text(), "Group 1, option 2")]').click()
 
     # 2. Select One (second)
     browser.find_element(By.CSS_SELECTOR, '[id="selectOne"]').click()
@@ -23,8 +23,9 @@ def test_form():
     select = Select(browser.find_element(By.TAG_NAME, "select"))
     select.select_by_visible_text("Purple")
 
-    # 4. Multiselect drop down
-    browser.find_element(By.XPATH, '//*[contains(text(), "Green")]').click()
+    # 4. Multiselect drop down  !!! no
+    browser.find_element(By.CSS_SELECTOR, '#selectMenuContainer > div:nth-child(8) > div > div > div').click()
+    browser.find_element(By.XPATH, '//div[contains(text(), "Blue")]').click()
 
     browser.execute_script("window.scrollBy(0, 100);")
 
@@ -32,6 +33,6 @@ def test_form():
     browser.find_element(By.CSS_SELECTOR, '[value="saab"]').click()
     browser.find_element(By.CSS_SELECTOR, '[value="audi"]').click()
 
-    time.sleep(10)
+    time.sleep(2)
 
     assert True

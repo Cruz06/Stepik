@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from Selen_stepik.Part_4.pages.base_page import BasePage
 
-
 class MainPage(BasePage):
 
     def go_to_login_page(self):

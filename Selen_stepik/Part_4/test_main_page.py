@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from pages.main_page import MainPage
+from .pages.main_page import MainPage
 
 
 def test_guest_can_do_login(browser):
