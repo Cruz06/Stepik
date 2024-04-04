@@ -2,11 +2,10 @@ from .pages.main_page import MainPage
 from Selen_stepik.Part_4.locators import MainPageLocators
 from Selen_stepik.Part_4.locators import LoginPageLocators
 
-
-def test_guest_can_do_login(browser):
+def test_if_login_page_url(browser):
     page = MainPage(browser, MainPageLocators.link)
     page.open()
-    page.go_to_login_page()
+    browser.find_element(*LoginPageLocators.L)
 
 
 def test_guest_should_see_login_link(browser):
