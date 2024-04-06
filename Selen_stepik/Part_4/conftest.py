@@ -3,7 +3,7 @@ from selenium import webdriver
 
 
 @pytest.fixture(scope="function")
-def browser(request):
+def browser(request) -> webdriver:
     browser_name = request.config.getoption("browser_name")
     lang_name = request.config.getoption("language")
     browser = None

@@ -9,7 +9,10 @@ class MainPageLocators():
 
 
 class LoginPageLocators():
-    LOGIN_URL = "http://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    LOGIN_URL = "https://selenium1py.pythonanywhere.com/ru/accounts/login/"
+    LOGIN_FORM = (By.CSS_SELECTOR, '#login_form')
+    REGISTER_FORM = (By.CSS_SELECTOR, '#register_form')
+
     LOGIN_USER = (By.CSS_SELECTOR, 'input[name="login-username"]')
     PASSWORD_USER = (By.CSS_SELECTOR, 'input[name="login-password"]')
     BUTTON_SUBMIT_USER = (By.CSS_SELECTOR, '[name="login_submit"]')
