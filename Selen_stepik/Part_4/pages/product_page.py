@@ -19,6 +19,8 @@ class ProductPage(BasePage):
     def check_product_name(self):
         expected_book_name = locators.ProductPageLocators.book_name_from_user
         actual_book_name = self.browser.find_element(*locators.ProductPageLocators.BOOK_NAME)
+        expected_book_name = locators.ProductPageLocators.BOOK_NAME
+        actual_book_name = self.browser.find_element(*locators.ProductPageLocators.BOOK_NAME_IN_BASKET)
         print(f'Book title is: "{actual_book_name.text}"')
         assert actual_book_name.text == expected_book_name, "Product name is wrong or missing"
 
@@ -44,3 +46,17 @@ class ProductPage(BasePage):
         # найти цену книги на странице
         actual_book_price = self.browser.find_element(*locators.ProductPageLocators.BOOK_PRICE)
         return actual_book_price.text
+
+    def check_product_name_in_basket(self, expected_book_name):
+        actual_book_name = self.browser.find_element(*locators.ProductPageLocators.BOOK_NAME_IN_BASKET).text
+        print("check_product_name_in_basket")
+        print(actual_book_name)
+        print(f'Book title is: "{actual_book_name}"')
+        assert actual_book_name == expected_book_name, "Product name is wrong or missing"
+
+    def check_product_price_in_basket(self, expected_book_price):
+        actual_book_price = self.browser.find_element(*locators.ProductPageLocators.BOOK_PRICE_IN_BASKET).text
+        print("check_product_price_in_basket")
+        print(actual_book_price)
+        print(f'Book price is: "{actual_book_price}"')
+        assert actual_book_price == expected_book_price, "Product price is wrong or missing"
