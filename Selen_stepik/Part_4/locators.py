@@ -22,3 +22,15 @@ class LoginPageLocators():
     PASSWORD_CONFIRM = (By.CSS_SELECTOR, 'input[name="registration-password2"]')
     BUTTON_SUBMIT_REGISTRATION = (By.CSS_SELECTOR, '[name="registration_submit"]')
 
+
+class ProductPageLocators():
+    BASKET_URL = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
+    BASKET_URL0 = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    book_name0_from_user = "The shellcoder's handbook"
+    book_name_from_user = "Coders at Work"
+    book_price0_from_user = "9,99 £"
+    book_price_from_user = "19,99 £"
+    BUTTON_ADD_BASKET = (By.CSS_SELECTOR, '[value="Добавить в корзину"]')
+    BOOK_NAME = (By.CSS_SELECTOR, 'div.col-sm-6.product_main > h1')
+    BOOK_PRICE = (By.CSS_SELECTOR, '.price_color:nth-child(2)')
+    MESSAGE_ABOUT_ADDING = (By.CSS_SELECTOR, 'div.alert:nth-child(1) strong')

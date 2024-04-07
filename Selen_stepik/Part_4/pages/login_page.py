@@ -2,6 +2,7 @@ from Selen_stepik.Part_4.pages.base_page import BasePage
 from Selen_stepik.Part_4 import locators
 from Selen_stepik.Part_4.pages import main_page
 
+
 class LoginPage(BasePage):
     def should_be_login_page(self):
         assert "login" in self.browser.current_url
