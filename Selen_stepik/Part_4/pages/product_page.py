@@ -58,3 +58,10 @@ class ProductPage(BasePage):
         print(f'actual price message is: {actual_book_price}')
         expected_price_text = "Your basket total is now"+ expected_book_price
         assert actual_book_price == expected_price_text, "Product price is wrong or missing"
+
+    def should_not_be_success_message(self):
+        assert not self.is_element_present(*locators.ProductPageLocators.MESSAGE_ABOUT_ADDING), "Success message is presented"
+
+    def elem_should_disappear(self):
+        assert self.is_disappeared(*locators.ProductPageLocators.MESSAGE_ABOUT_ADDING), "Succes message dodn't disappeared in 4 sec"
+

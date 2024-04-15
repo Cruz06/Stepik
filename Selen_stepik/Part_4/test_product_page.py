@@ -55,6 +55,7 @@ link10 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?pr
 
 @pytest.mark.parametrize('link', ProductPageLocators.all_products_links)
 def test_guest_can_add_many_product_to_basket(browser, link):
+    # task 4.3.4
     # много страниц - книга и цена не указана явно, а будет найдена на странице
     page = ProductPage(browser, link)
     page.open()
@@ -68,3 +69,22 @@ def test_guest_can_add_many_product_to_basket(browser, link):
     # name = page.find_product_name()
     # price = page.find_product_price()
     # print(f'Вы положили в корзину книгу "{name}" по цене "{price}".')
+
+
+def test_guest_can_add_product_to_basket(browser):
+    # task 4.3.5
+    page = ProductPage(browser, ProductPageLocators.BASKET_URL)
+    page.open()
+    print()
+    print(f'"page {page} was open')
+    name = page.find_product_name()
+    page.add_product_to_basket()
+    print(f'Book {name} was added to the basket')
+    page.solve_quiz_and_get_code()
+    print("quiz was solved")
+    # page.should_not_be_success_message()
+    page.elem_should_disappear()
+    page.should_be_msg_about_adding(expected_book_name="Coders at Work")
+    page.check_product_name_in_basket(expected_book_name="Coders at Work")
+
+
