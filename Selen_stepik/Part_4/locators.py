@@ -32,11 +32,14 @@ class ProductPageLocators():
     book_price_from_user = "19,99 £"
     #BUTTON_ADD_BASKET = (By.CSS_SELECTOR, '[value="Добавить в корзину"]')
     BUTTON_ADD_BASKET = (By.CLASS_NAME, 'btn-add-to-basket')
-    BOOK_NAME = (By.CSS_SELECTOR, 'div.col-sm-6.product_main > h1')
-    BOOK_PRICE = (By.CSS_SELECTOR, '.price_color:nth-child(2)')
+    # BOOK_NAME_IN_CATALOG = (By.CSS_SELECTOR, 'div.col-sm-6.product_main > h1')
+    # BOOK_PRICE_IN_CATALOG = (By.CSS_SELECTOR, '.price_color:nth-child(2)')
+    BOOK_NAME_IN_CATALOG = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/h1')
+    BOOK_PRICE_IN_CATALOG = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/p[1]')
+
     MESSAGE_ABOUT_ADDING = (By.CSS_SELECTOR, 'div.alert:nth-child(1) strong')
-    BOOK_NAME_IN_BASKET = (By.XPATH, '//*[@id ="content_inner"]/article/div[1]/div[2]')
-    BOOK_PRICE_IN_BASKET = (By.XPATH, '//*[@id="content_inner"]/article/div[1]/div[2]/p[1]')
+    MESSAGE_IN_BASKET = (By.XPATH, '//*[@id="messages"]/div[1]/div')
+    MESSAGE_PRICE_IN_BASKET = (By.XPATH, '//*[@id="messages"]/div[3]/div/p[1]/text()')
 
     all_products_links = ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                     "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
