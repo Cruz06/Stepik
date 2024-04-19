@@ -5,6 +5,8 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from Selen_stepik.Part_4.locators import ProductPageLocators
+
 
 class BasePage():
 
@@ -46,11 +48,13 @@ class BasePage():
             return True
         return False
 
-
     def is_disappeared(self, how, what, timeout=4):
         try:
-            WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(EC.presence_of_element_located((how, what)))
+            WebDriverWait(self.browser, timeout).until_not(EC.invisibility_of_element_located((how, what)))
         except TimeoutException:
             return False
         return True
+
+    def go_to_basket(self):
+        self.browser.find_element(*ProductPageLocators.GO_TO_BASKET).click()
 

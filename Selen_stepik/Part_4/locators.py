@@ -30,6 +30,7 @@ class ProductPageLocators():
     book_name_from_user = "Coders at Work"
     book_price0_from_user = "9,99 £"
     book_price_from_user = "19,99 £"
+    GO_TO_BASKET = (By.CSS_SELECTOR, '[href$="basket/"]:first-child')
     #BUTTON_ADD_BASKET = (By.CSS_SELECTOR, '[value="Добавить в корзину"]')
     BUTTON_ADD_BASKET = (By.CLASS_NAME, 'btn-add-to-basket')
     # BOOK_NAME_IN_CATALOG = (By.CSS_SELECTOR, 'div.col-sm-6.product_main > h1')
@@ -51,3 +52,8 @@ class ProductPageLocators():
                     "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7",
                     "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
                     "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
+
+
+class BasketPage():
+    BUTTON_MAKE_ORDER = (By.CSS_SELECTOR, '[href$="checkout/"]')
+    MSG_BASKET_EMPTY = (By.CSS_SELECTOR, '#content_inner p')

@@ -1,6 +1,8 @@
 import time
 
 from .locators import ProductPageLocators
+from .pages.base_page import BasePage
+from .pages.basket_page import BasketPage
 from .pages.product_page import ProductPage
 import pytest
 
@@ -35,6 +37,7 @@ def test_guest_can_add_any_product_to_basket(browser):
     price = page.find_product_price()
     print(f'Вы положили в корзину книгу "{name}" по цене "{price}".')
 
+
 def test2_guest_can_add_any_product_to_basket(browser):
     # если книга не указана явно, а будет найдена на странице new
     page = ProductPage(browser, ProductPageLocators.BASKET_URL)
@@ -53,7 +56,7 @@ def test2_guest_can_add_any_product_to_basket(browser):
 
 link10 = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0"
 
-@pytest.mark.parametrize('link', ProductPageLocators.all_products_links)
+
 def test_guest_can_add_many_product_to_basket(browser, link):
     # task 4.3.4
     # много страниц - книга и цена не указана явно, а будет найдена на странице
@@ -71,7 +74,7 @@ def test_guest_can_add_many_product_to_basket(browser, link):
     # print(f'Вы положили в корзину книгу "{name}" по цене "{price}".')
 
 
-def test_guest_can_add_product_to_basket(browser):
+def test_guest_can_add_product_to_basket2(browser):
     # task 4.3.5
     page = ProductPage(browser, ProductPageLocators.BASKET_URL)
     page.open()
@@ -86,5 +89,13 @@ def test_guest_can_add_product_to_basket(browser):
     page.elem_should_disappear()
     page.should_be_msg_about_adding(expected_book_name="Coders at Work")
     page.check_product_name_in_basket(expected_book_name="Coders at Work")
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = ProductPage(browser, ProductPageLocators.BASKET_URL)
+    page.open()
+    page.go_to_basket()
+    page = BasketPage(browser, browser.current_url)
+    page.basket_should_be_empty()
 
 

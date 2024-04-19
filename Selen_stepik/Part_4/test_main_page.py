@@ -1,8 +1,9 @@
+from .pages.basket_page import BasketPage
 from .pages.main_page import MainPage
 from Selen_stepik.Part_4.locators import MainPageLocators
 from .pages.login_page import LoginPage
 from Selen_stepik.Part_4.locators import LoginPageLocators
-
+from Selen_stepik.Part_4.locators import ProductPageLocators
 
 def test_guest_can_do_login(browser):
     page = MainPage(browser, MainPageLocators.link)
@@ -39,6 +40,15 @@ def test_should_be_registration_form(browser):
     page = LoginPage(browser, LoginPageLocators.LOGIN_URL)
     page.open()
     page.should_be_register_form()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    page = MainPage(browser, MainPageLocators.link)
+    page.open()
+    page.go_to_basket()
+    page = BasketPage(browser, browser.current_url)
+    page.basket_should_be_empty()
+
 
 
 
