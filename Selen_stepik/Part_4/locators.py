@@ -1,11 +1,14 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators():
+class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    link = "http://selenium1py.pythonanywhere.com/"
-    link1 = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
     invalid_link = (By.CSS_SELECTOR, "#login_link_a")
+
+
+class BasketPageLocators():
+    BUTTON_MAKE_ORDER = (By.CSS_SELECTOR, '[href$="checkout/"]')
+    MSG_BASKET_EMPTY = (By.CSS_SELECTOR, '#content_inner p')
 
 
 class LoginPageLocators():
@@ -23,10 +26,17 @@ class LoginPageLocators():
     BUTTON_SUBMIT_REGISTRATION = (By.CSS_SELECTOR, '[name="registration_submit"]')
 
 
+class MainPageLocators():
+
+    link = "http://selenium1py.pythonanywhere.com/"
+    link1 = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209?promo=midsummer"
+
+
 class ProductPageLocators():
     PRODUCT_URL_EN = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
     BASKET_URL = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
     BASKET_URL0 = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+    URL_CITY_AND_STARS = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     book_name0_from_user = "The shellcoder's handbook"
     book_name_from_user = "Coders at Work"
     book_price0_from_user = "9,99 £"
@@ -55,6 +65,3 @@ class ProductPageLocators():
                     "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
 
 
-class BasketPage():
-    BUTTON_MAKE_ORDER = (By.CSS_SELECTOR, '[href$="checkout/"]')
-    MSG_BASKET_EMPTY = (By.CSS_SELECTOR, '#content_inner p')

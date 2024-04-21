@@ -1,10 +1,9 @@
 import math
 from selenium.common import NoSuchElementException, NoAlertPresentException, TimeoutException
-from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from Selen_stepik.Part_4.locators import BasePageLocators
 from Selen_stepik.Part_4.locators import ProductPageLocators
 
 
@@ -61,3 +60,13 @@ class BasePage():
     def go_to_basket(self):
         self.browser.find_element(*ProductPageLocators.GO_TO_BASKET).click()
 
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_product_page(self):
+        product_link = self.browser.find_element(*ProductPageLocators.BASKET_URL)
+        product_link.click()

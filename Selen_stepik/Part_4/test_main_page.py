@@ -1,20 +1,25 @@
 from .pages.basket_page import BasketPage
 from .pages.main_page import MainPage
 from Selen_stepik.Part_4.locators import MainPageLocators
+from Selen_stepik.Part_4.locators import BasePageLocators
 from .pages.login_page import LoginPage
 from Selen_stepik.Part_4.locators import LoginPageLocators
 from Selen_stepik.Part_4.locators import ProductPageLocators
-
-def test_guest_can_do_login(browser):
-    page = MainPage(browser, MainPageLocators.link)
-    page.open()
-    page.go_to_login_page()
+import pytest
 
 
-def test_guest_should_see_login_link(browser):
-    page = MainPage(browser, MainPageLocators.link)
-    page.open()
-    assert page.is_element_present(*MainPageLocators.LOGIN_LINK), "Link is invalid"
+@pytest.mark.login_guest
+class TestLogingFromMainPage():
+    pytestmark = pytest.mark.login_guest
+    def test_guest_should_see_login_link(self, browser):
+        page = MainPage(browser, MainPageLocators.link)
+        page.open()
+        assert page.is_element_present(*BasePageLocators.LOGIN_LINK), "Link is invalid"
+
+    def test_guest_can_do_login(self, browser):
+        page = MainPage(browser, MainPageLocators.link)
+        page.open()
+        page.go_to_login_page()
 
 
 def test_should_login_page(browser):
