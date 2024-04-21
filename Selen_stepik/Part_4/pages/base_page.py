@@ -48,11 +48,14 @@ class BasePage():
             return True
         return False
 
-    def is_disappeared(self, how, what, timeout=4):
+    def is_disappeared(self, how, what, timeout=4): # проверить, что какой-то элемент исчезает
+        # будет ждать до тех пор, пока элемент не исчезнет.
         try:
-            WebDriverWait(self.browser, timeout).until_not(EC.invisibility_of_element_located((how, what)))
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
+
         return True
 
     def go_to_basket(self):

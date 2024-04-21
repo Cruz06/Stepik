@@ -9,3 +9,5 @@ class BasketPage(BasePage):
         text_message_eng = "Your basket is empty"
         text_message_ru = "Ваша корзина пуста"
         assert (text_message_eng in msg.text or text_message_ru in msg.text) , "Basket is not empty"
+
+

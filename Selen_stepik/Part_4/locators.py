@@ -24,6 +24,7 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
+    PRODUCT_URL_EN = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
     BASKET_URL = "http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=newYear2019"
     BASKET_URL0 = "http://selenium1py.pythonanywhere.com/ru/catalogue/the-shellcoders-handbook_209/?promo=newYear"
     book_name0_from_user = "The shellcoder's handbook"
